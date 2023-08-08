@@ -12,7 +12,7 @@ runs:
               const { pull_request } = context.payload
               const { title } = pull_request
 
-              const {gitmojis} = require('./.github/actions/gitmoji/gitmojis.json')
+              const {gitmojis} = require('./.github/composite/gitmoji/gitmojis.json')
               const startsWithGitmoji = gitmojis.flatMap(({ emoji, code }) => [emoji, code])
                 .some(substr => title.startsWith(substr));
 
