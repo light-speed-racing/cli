@@ -1,12 +1,12 @@
-# @light-speed-racing/cli
+# @arelstone/light-speed-racing-cli
 A tool for easy managing of developer tasks.
 
 ## Installation (not working yet)
-`yarn global add @light-speed-racing/cli`
+`yarn global add @arelstone/light-speed-racing-cli`
 
 or
 
-`npm -g i @light-speed-racing/cli`
+`npm -g i @arelstone/light-speed-racing-cli`
 
 
 ## Documentation
