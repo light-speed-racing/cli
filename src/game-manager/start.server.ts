@@ -20,7 +20,6 @@ export const StartServer = {
   handler: async ({ port, ip }) => {
     await new GameManager().start(port, ip)
   }
-// eslint-disable-next-line @typescript-eslint/ban-types
 } as CommandModule<Record<string, unknown>, {
   port: number,
   ip: string

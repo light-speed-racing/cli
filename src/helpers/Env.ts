@@ -1,8 +1,14 @@
 import 'dotenv/config'
+import { readFileSync } from 'fs'
+import { CONFIG_PATH, deserialize, Config } from '../init/config.manager'
 
 export class Env {
-  static get (key: string, fallback?: string): string {
-    const value = process.env[key] || fallback
+  static all () {
+    return deserialize(readFileSync(CONFIG_PATH))
+  }
+
+  static get (key: keyof Config): string {
+    const value = Env.all()[key]
 
     if (value === undefined) {
       throw new Error(`Please provide env variable for ${key}`)

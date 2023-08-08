@@ -12,5 +12,4 @@ export const GameManager = {
       .command(StopServer)
       .command(RestartServer)
   }
-// eslint-disable-next-line @typescript-eslint/ban-types
-} as CommandModule<Record<string, unknown>, {}>
+} as CommandModule
