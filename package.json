@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@paralenz/eslint-config-typescript-react": "paralenz/eslint-config-typescript-react",
-    "@types/node": "^16.0.0",
+    "@types/node": "^20.4.8",
     "@types/node-fetch": "^3.0.3",
     "@types/yargs": "^17.0.8",
     "axios": "^1.4.0",
