@@ -1,4 +1,4 @@
-# @paralenz/cli
+# @light-speed-racing/cli
 A tool for easy managing of developer tasks.
 
 ## Installation (not working yet)
