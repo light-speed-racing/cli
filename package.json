@@ -1,6 +1,6 @@
 {
   "name": "@light-speed-racing/cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
@@ -10,25 +10,21 @@
   "bin": {
     "lsr": "lsr"
   },
+  "files": [
+    "lsr"
+  ],
   "dependencies": {
-    "cli-progress": "^3.10.0",
     "yargs": "^17.3.1"
   },
   "devDependencies": {
-    "@arelstone/simgrid-utils": "^1.1.0",
-    "@arelstone/utils": "^0.0.4",
     "@paralenz/eslint-config-typescript-react": "paralenz/eslint-config-typescript-react",
-    "@types/cli-progress": "^3.9.2",
-    "@types/cli-table": "^0.3.1",
     "@types/node": "^16.0.0",
     "@types/node-fetch": "^3.0.3",
     "@types/yargs": "^17.0.8",
     "axios": "^1.4.0",
     "chalk": "^5.3.0",
-    "cli-table": "^0.3.11",
     "dotenv": "^16.3.1",
     "esbuild": "^0.14.8",
-    "http-status-codes": "^2.2.0",
     "moment": "^2.29.4",
     "mute-stream": "^1.0.0",
     "node-fetch": "^3.1.1",
