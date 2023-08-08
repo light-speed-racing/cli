@@ -3,8 +3,12 @@ on:
   pull_request: 
     types: [opened, synchronize, edited]
   
-jobs:
 
+concurrency:
+  group: pull-request-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
   gitmoji:
     name: Ensure that title has a gitmoji
     runs-on: ubuntu-latest
