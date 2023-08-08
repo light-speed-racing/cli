@@ -1,0 +1,19 @@
+{
+    "yargs command": {
+        "prefix": "command",
+        "description": "Scaffold a command for yargs",
+        "scope": "typescript",
+        "body": [
+            "import { CommandModule } from 'yargs'",
+            "",
+            "export default {",
+            "  command: '${1:Command}',",
+            "  describe: '${2:Description}',",
+            "${3:  aliases: 'Alias',}",
+            "  builder: yargs => {$4},",
+            "  handler: async args => {$5},",
+            "} as CommandModule<Record<string, unknown>, {${6}}>",
+            ""
+        ],
+    },
+}

@@ -1,0 +1,35 @@
+name: npm-publish
+on:
+  push:
+    branches:
+      - master
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/composite/setup-node
+      
+      - name: Linting
+        run: yarn lint
+      
+      - name: Build
+        run: yarn build
+      
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+      
+      - name: Extract version from package.json
+        id: extract_version
+        uses: Saionaro/extract-package-version@v1.2.1
+
+      - name: Create release on github
+        uses: marvinpinto/action-automatic-releases@v1.2.1
+        with:
+          repo_token: ${{ secrets.GH_TOKEN }}
+          prerelease: false
+          title: v${{ steps.extract_version.outputs.version }}
+          automatic_release_tag: v${{ steps.extract_version.outputs.version }}

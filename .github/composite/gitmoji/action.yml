@@ -1,0 +1,29 @@
+name: gitmoji
+description: Ensure that pull request title starts with a gitmoji
+runs:
+    using: 'composite'
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/github-script@v6
+          with:
+            script: |
+              const MIN_LENGTH = 5
+              const MAX_LENGTH = 72
+              const { pull_request } = context.payload
+              const { title } = pull_request
+
+              const {gitmojis} = require('./.github/actions/gitmoji/gitmojis.json')
+              const startsWithGitmoji = gitmojis.flatMap(({ emoji, code }) => [emoji, code])
+                .some(substr => title.startsWith(substr));
+
+              if (!startsWithGitmoji) {
+                core.setFailed(`'${title}' does not start with a valid gitmoji. See: https://gitmoji.dev/`)
+              }
+
+              if (title.length <= MIN_LENGTH) {
+                core.setFailed(`'${title}' is not long enough. min-length: ${MIN_LENGTH}`)
+              }
+
+              if (title.length >= MAX_LENGTH) {
+                core.setFailed(`'${title}' is too long. max-length: ${MAX_LENGTH}`)
+              }

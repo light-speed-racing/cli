@@ -1,0 +1,21 @@
+name: Setup node and install dependencies
+description: Setup node and install dependencies
+
+inputs:
+  node-version:
+    required: false
+    description: 'The node version that should be used'
+    default: '16'
+runs:
+    using: 'composite'
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{inputs.node-version}}
+          cache: 'yarn'
+          cache-dependency-path: './yarn.lock'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        shell: bash
