@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import { readFileSync } from 'fs'
 import { CONFIG_PATH, deserialize, Config } from '../init/config.manager'
 
