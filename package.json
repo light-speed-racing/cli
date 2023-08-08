@@ -27,7 +27,7 @@
     "chalk": "^5.3.0",
     "cli-table": "^0.3.11",
     "dotenv": "^16.3.1",
-    "esbuild": "^0.14.8",
+    "esbuild": "^0.18.20",
     "http-status-codes": "^2.2.0",
     "moment": "^2.29.4",
     "mute-stream": "^1.0.0",
