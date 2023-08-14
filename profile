@@ -1,13 +1,13 @@
 export PATH="$PWD:$PATH"
 
-###-begin-lsr-completions-###
+###-begin-ogp-completions-###
 #
 # yargs command completion script
 #
-# Installation: lsr completion >> ~/.bashrc
-#    or lsr completion >> ~/.bash_profile on OSX.
+# Installation: ogp completion >> ~/.bashrc
+#    or ogp completion >> ~/.bash_profile on OSX.
 #
-_lsr_yargs_completions()
+_ogp_yargs_completions()
 {
     local cur_word args type_list
 
@@ -15,7 +15,7 @@ _lsr_yargs_completions()
     args=("${COMP_WORDS[@]}")
 
     # ask yargs to generate completions.
-    type_list=$(lsr --get-yargs-completions "${args[@]}")
+    type_list=$(ogp --get-yargs-completions "${args[@]}")
 
     COMPREPLY=( $(compgen -W "${type_list}" -- ${cur_word}) )
 
@@ -26,5 +26,5 @@ _lsr_yargs_completions()
 
     return 0
 }
-complete -o bashdefault -o default -F _lsr_yargs_completions lsr
-###-end-lsr-completions-###
+complete -o bashdefault -o default -F _ogp_yargs_completions ogp
+###-end-ogp-completions-###

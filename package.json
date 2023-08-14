@@ -5,19 +5,20 @@
   "scripts": {
     "lint": "eslint .",
     "build": "./build.sh",
-    "lsr": "yarn build && ./lsr"
+    "ogp": "yarn build && ./ogp"
   },
   "bin": {
     "lsr": "lsr"
   },
   "files": [
-    "lsr"
+    "ogp"
   ],
   "dependencies": {
     "yargs": "^17.3.1"
   },
   "devDependencies": {
     "@paralenz/eslint-config-typescript-react": "paralenz/eslint-config-typescript-react",
+    "@sindresorhus/slugify": "^2.2.1",
     "@types/node": "^16.0.0",
     "@types/node-fetch": "^3.0.3",
     "@types/yargs": "^17.0.8",

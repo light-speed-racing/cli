@@ -2,7 +2,7 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { GameManager } from './game-manager'
-import { InitCommnad } from './init'
+import { ConfigureCommnad } from './configure'
 import { checkForUpdate } from './check-for-update.middleware'
 
 // HACK: disable deprecation warnings.
@@ -11,7 +11,7 @@ import { checkForUpdate } from './check-for-update.middleware'
 
 yargs(hideBin(process.argv))
   .scriptName('lsr')
-  .command(InitCommnad)
+  .command(ConfigureCommnad)
   .command(GameManager)
   .middleware(checkForUpdate)
   .completion()

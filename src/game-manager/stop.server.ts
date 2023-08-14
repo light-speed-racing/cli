@@ -1,26 +1,20 @@
 import { CommandModule } from 'yargs'
-import { Env } from '../helpers'
 import { GameManager } from '../helpers/ogp'
+import { server } from '../configure/server-config.manager'
 
 export const StopServer = {
-  command: 'stop <port>',
+  command: 'stop <slug>',
   describe: 'Stop a server',
   builder: (yargs) => {
     yargs
-      .positional('port', {
-        type: 'number',
-        description: 'The port that the server is running on'
-      })
-      .option('ip', {
+      .positional('slug', {
         type: 'string',
-        description: 'The ip address that the server is running on',
-        default: Env.get('OGP_DEFAULT_AGENT_IP')
+        description: 'The slug of the server'
       })
   },
-  handler: async ({ port, ip }) => {
-    await new GameManager().stop(port, ip)
+  handler: async ({ slug }) => {
+    await new GameManager(server(slug)).stop()
   }
 } as CommandModule<Record<string, unknown>, {
-  port: number,
-  ip: string
+  slug: string
 }>
