@@ -1,3 +1,7 @@
 {
-    "extends": "@paralenz/eslint-config-typescript-react"
+    "extends": "@paralenz/eslint-config-typescript-react",
+    "rules": {
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+    }
 }

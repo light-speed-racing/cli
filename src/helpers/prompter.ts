@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import Mutestream from 'mute-stream'
 import { createInterface } from 'readline'
 import { Disposable } from './disposable'
@@ -18,7 +17,7 @@ export const Prompter = (muted = false) => {
       let answer = '' as string | undefined
 
       const query = defaultTo
-        ? `${question}\n${chalk.gray(`(${defaultTo} [ENTER to use default value])`)}\n`
+        ? `${question}: ${defaultTo} [ENTER]\n`
         : `${question}:`
 
       while (!answer) {
