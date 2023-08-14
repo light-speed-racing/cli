@@ -4,7 +4,7 @@ import { ListAllServersCommand } from './list.server'
 import { RemoveServerCommand } from './remove.server'
 import { UpdateServerCommand } from './update.server'
 
-export const ConfigureCommnad = {
+export const ConfigureCommand = {
   command: 'configure',
   describe: 'Configure the cli',
   builder: yargs => {
