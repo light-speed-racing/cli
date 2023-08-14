@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import Mutestream from 'mute-stream'
 import { createInterface } from 'readline'
 import { Disposable } from './disposable'
