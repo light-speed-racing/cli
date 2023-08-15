@@ -442,7 +442,8 @@
 
 "@paralenz/eslint-config-typescript-react@paralenz/eslint-config-typescript-react":
   version "1.2.5"
-  resolved "https://codeload.github.com/paralenz/eslint-config-typescript-react/tar.gz/a21e05a088b09b60479bde5718892bd1f9f32774"
+  uid e7c61f9e015e06d02d70c3ecf5b27e16afaf15dc
+  resolved "https://codeload.github.com/paralenz/eslint-config-typescript-react/tar.gz/e7c61f9e015e06d02d70c3ecf5b27e16afaf15dc"
   dependencies:
     "@typescript-eslint/eslint-plugin" "5.21.0"
     "@typescript-eslint/parser" "5.21.0"
