@@ -1,20 +1,13 @@
 import { CommandModule } from 'yargs'
-import { GameManager } from '../helpers/ogp'
-import { server } from '../configure/server-config.manager'
+import { ServerSelect } from '../helpers'
+import { GameManager } from '../open-game-panel'
 
 export const StartServer = {
-  command: 'start <slug>',
+  command: 'start',
   describe: 'Start a server',
-  builder: (yargs) => {
-    yargs
-      .positional('slug', {
-        type: 'string',
-        description: 'The slug of the server'
-      })
-  },
-  handler: async ({ slug }) => {
-    await new GameManager(server(slug)).start()
+  handler: async () => {
+    const server = await ServerSelect()
+    console.info(`Starting ${server.name}`)
+    await new GameManager(server).start()
   }
-} as CommandModule<Record<string, unknown>, {
-  slug: string
-}>
+} as CommandModule

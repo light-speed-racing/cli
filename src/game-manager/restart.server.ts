@@ -1,20 +1,14 @@
 import { CommandModule } from 'yargs'
-import { GameManager } from '../helpers/ogp'
-import { server } from '../configure/server-config.manager'
+import { ServerSelect } from '../helpers'
+import { GameManager } from '../open-game-panel'
 
 export const RestartServer = {
-  command: 'restart <slug>',
+  command: 'restart',
   describe: 'Restart a server',
-  builder: (yargs) => {
-    yargs
-      .positional('slug', {
-        type: 'string',
-        description: 'The slug of the server'
-      })
-  },
-  handler: async ({ slug }) => {
-    await new GameManager(server(slug)).restart()
+  handler: async () => {
+    const server = await ServerSelect()
+
+    console.info(`Restarting ${server.name}`)
+    await new GameManager(server).restart()
   }
-} as CommandModule<Record<string, unknown>, {
-  slug: string
-}>
+} as CommandModule
