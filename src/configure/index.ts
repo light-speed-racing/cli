@@ -1,17 +1,13 @@
 import { CommandModule } from 'yargs'
-import { AddServerCommand } from './add.server'
-import { ListAllServersCommand } from './list.server'
-import { RemoveServerCommand } from './remove.server'
-import { UpdateServerCommand } from './update.server'
+import { SetTokenCommand } from './set-token.config'
+import { SyncConfigCommand } from './sync.configureation'
 
 export const ConfigureCommand = {
   command: 'configure',
   describe: 'Configure the cli',
   builder: yargs => {
     yargs
-      .command(AddServerCommand)
-      .command(ListAllServersCommand)
-      .command(RemoveServerCommand)
-      .command(UpdateServerCommand)
+      .command(SetTokenCommand)
+      .command(SyncConfigCommand)
   }
 } as CommandModule
