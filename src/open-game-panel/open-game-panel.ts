@@ -5,7 +5,7 @@ import { join } from 'path'
 import { OGPServerConfig } from '../server'
 import { CONFIG_DIR, SCRIPT_NAME } from '../constants'
 
-type Respoonse<Message> = {
+type Response<Message> = {
   status: string;
   message: Message;
 }
@@ -40,12 +40,16 @@ export class OpenGamePanel {
     }
 
     request = async <T = string>(path: string, params?: Record<string, unknown>) => {
-      const { data } = await this.client.get<Respoonse<T>>(`${this.server.pathname}?${path}`, { params })
+      // console.log(`${this.server.pathname}?${path}`, { params })
+
+      const res = await this.client.get<Response<T>>(`${this.server.pathname}?${path}`, { params })
+      const { data } = res
 
       if (Number(data.status) !== 200) {
         console.error(data.message)
         return null
       }
+
       return data
     }
 }
