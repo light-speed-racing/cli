@@ -6,9 +6,16 @@ import { LiteFM } from '../open-game-panel'
 export const ReadFile = {
   command: 'read',
   describe: 'Read the content of a configuration file',
-  handler: async () => {
+  builder: yargs => {
+    yargs.option('directory', {
+      alias: 'd',
+      default: 'cfg',
+      describe: 'The directory'
+    })
+  },
+  handler: async ({ directory }) => {
     const server = await ServerSelect()
-    const files = (await new LiteFM(server).list('cfg'))
+    const files = await new LiteFM(server).list(directory)
 
     const { index } = await prompts({
       type: 'select',
@@ -17,8 +24,11 @@ export const ReadFile = {
       choices: files.map(({ filename }) => ({ title: filename }))
     })
 
-    const response = await new LiteFM(server).read(`cfg/${files.at(index).filename}`)
+    const response = await new LiteFM(server)
+      .read(`${directory}/${files.at(index).filename}`)
 
     console.log(response)
   }
-} as CommandModule
+} as CommandModule<Record<string, unknown>, {
+  directory: string,
+}>

@@ -18,11 +18,11 @@ export class LiteFM extends OpenGamePanel {
     super(server)
   }
 
-    list = async (relative_path: string) => {
+    list = async (relative_path: string, filetype = '.json') => {
       const response = await this.request('litefm/list', { ...this.server.agent, relative_path })
-      const content = JSON.parse(JSON.stringify(response.message)) as FileList
+      const { files } = JSON.parse(JSON.stringify(response.message)) as FileList
 
-      return Object.values(content.files).filter(f => f.filename.endsWith('.json'))
+      return Object.values(files).filter(f => f.filename.endsWith(filetype))
     }
 
     read = async (relative_path: string) => {
