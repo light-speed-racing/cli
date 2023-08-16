@@ -5,6 +5,7 @@ import { GameManager } from './game-manager'
 import { ConfigureCommand } from './configure'
 import { checkForUpdate } from './check-for-update.middleware'
 import { SCRIPT_NAME } from './constants'
+import { FileManager } from './file-manager'
 
 // HACK: disable deprecation warnings.
 // Found in source code: https://github.com/cjihrig/node/blob/49902124a9d697e441dbf724aa6b26bd98f75dd0/lib/internal/process/warning.js#L12
@@ -14,6 +15,7 @@ yargs(hideBin(process.argv))
   .scriptName(SCRIPT_NAME)
   .command(ConfigureCommand)
   .command(GameManager)
+  .command(FileManager)
   .middleware(checkForUpdate)
   .completion()
   .parse()

@@ -11,7 +11,7 @@ export const ServerSelect = async () => {
       path: join(CONFIG_DIR, file)
     }))
 
-  const { selected } = await prompts<{selected: number}>({
+  const { selected } = await prompts({
     type: 'select',
     name: 'selected',
     message: 'Select the servers you would like to manage',
