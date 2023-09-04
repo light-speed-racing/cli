@@ -13,14 +13,14 @@ jobs:
     name: Ensure that title has a gitmoji
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/composite/gitmoji
           
   linting:
     name: Run linting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/composite/setup-node
       - run: yarn lint
   
@@ -28,6 +28,6 @@ jobs:
     name: Run build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/composite/setup-node
       - run: yarn build
