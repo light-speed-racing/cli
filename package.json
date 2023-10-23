@@ -21,7 +21,7 @@
     "@octokit/rest": "^20.0.1",
     "@paralenz/eslint-config-typescript-react": "paralenz/eslint-config-typescript-react",
     "@types/cli-spinner": "^0.2.1",
-    "@types/node": "^16.0.0",
+    "@types/node": "^20.8.7",
     "@types/yargs": "^17.0.8",
     "axios": "^1.4.0",
     "chalk": "^5.3.0",
